@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param (
     [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)"
 )
@@ -31,7 +31,8 @@ $Shortcut.Arguments = "-WindowStyle Hidden -ExecutionPolicy Bypass -File `"$Laun
 # Configurar el icono si existe
 if (Test-Path -Path $IconPath) {
     $Shortcut.IconLocation = $IconPath
-} else {
+}
+else {
     Write-Host "[!] El icono predeterminado no existe: $IconPath" -ForegroundColor Yellow
     Write-Host "[*] Se usará el icono predeterminado de PowerShell." -ForegroundColor Yellow
 }

@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param (
     [string]$TargetDirName = "FFVIIRB-Nvidia-FrameView-Toggle",
     [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)",
@@ -37,7 +37,8 @@ $TargetDir = Join-Path -Path $env:USERPROFILE -ChildPath "$InstallDirName\$Targe
 if (-not (Test-Path -Path $TargetDir)) {
     Write-Host "[*] Creando directorio de instalación en:`n    $TargetDir"
     New-Item -ItemType Directory -Path $TargetDir -Force | Out-Null
-} else {
+}
+else {
     Write-Host "[*] El directorio de instalación ya existe en:`n    $TargetDir"
 }
 

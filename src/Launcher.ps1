@@ -1,4 +1,4 @@
-param (
+﻿param (
     [switch]$SkipAdminCheck,
     [switch]$Help
 )
@@ -36,8 +36,8 @@ if (-not $SkipAdminCheck) {
 # ============================================================
 # Constantes
 # ============================================================
-$ServiceName  = "FvSvc"
-$ProcessName  = "ff7rebirth"
+$ServiceName = "FvSvc"
+$ProcessName = "ff7rebirth"
 $AppPathOrURI = "steam://rungameid/2909400"
 
 Write-Host "============================================================" -ForegroundColor Cyan
