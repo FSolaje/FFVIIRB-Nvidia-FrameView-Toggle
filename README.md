@@ -20,6 +20,10 @@ Ideal si quieres que el proceso sea completamente transparente y automático cad
 
 **Instalación:**
 1. Ejecuta `src/Install.ps1` (haz clic derecho en el archivo -> Ejecutar con PowerShell).
+   - *Alternativa:* Si Windows te muestra un error indicando que la ejecución de scripts está deshabilitada, abre una consola y ejecuta:
+     ```powershell
+     powershell.exe -ExecutionPolicy Bypass -File .\Install.ps1
+     ```
 2. Se creará una carpeta en la ruta de guardado del juego: `C:\Users\[TuUsuario]\Documents\My Games\FINAL FANTASY VII REBIRTH\FFVIIRB-Nvidia-FrameView-Toggle`.
 3. Allí se copiarán los scripts necesarios y se generará automáticamente un acceso directo en tu Escritorio llamado **FFVII Rebirth (FrameView Toggle)**.
 
@@ -35,6 +39,10 @@ Ideal si solo quieres detener el servicio de telemetría de forma independiente 
 **Ejecución:**
 - Descarga únicamente el archivo `src/Toggle-NvidiaService.ps1` y guárdalo en cualquier lugar de tu equipo.
 - Haz clic derecho sobre el archivo descargado y selecciona **Ejecutar con PowerShell**.
+  - *Alternativa:* Si Windows te muestra un error indicando que la ejecución de scripts está deshabilitada, abre una consola y ejecuta:
+    ```powershell
+    powershell.exe -ExecutionPolicy Bypass -File .\Toggle-NvidiaService.ps1
+    ```
 - **Privilegios de Administrador:** Al igual que en el modo automático, el script requiere permisos de administrador. Si no lo ejecutas como administrador desde el principio, el script cuenta con un sistema de autoelevación: se reiniciará automáticamente solicitándote permisos (UAC).
 - **Ventana de PowerShell:** En este modo, la ventana de consola **sí será visible**. 
 - **Proceso:** El script actuará como un interruptor. Leerá el estado actual del servicio `FvSvc`:
