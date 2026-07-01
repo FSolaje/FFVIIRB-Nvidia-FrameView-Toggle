@@ -19,7 +19,7 @@ La herramienta puede utilizarse de dos formas: **Modo Automático (Instalación)
 Ideal si quieres que el proceso sea completamente transparente y automático cada vez que vayas a jugar.
 
 **Instalación:**
-1. Ejecuta `src/Install.ps1` (haz clic derecho en el archivo -> Ejecutar con PowerShell).
+1. Ejecuta `Install.ps1` (haz clic derecho en el archivo -> Ejecutar con PowerShell).
    - *Alternativa:* Si Windows te muestra un error indicando que la ejecución de scripts está deshabilitada, abre una consola y ejecuta:
      ```powershell
      powershell.exe -ExecutionPolicy Bypass -File .\Install.ps1
@@ -37,7 +37,7 @@ Ideal si quieres que el proceso sea completamente transparente y automático cad
 Ideal si solo quieres detener el servicio de telemetría de forma independiente sin utilizar el Launcher para abrir el juego (por ejemplo, si prefieres lanzar el juego desde Steam/Epic manualmente).
 
 **Ejecución:**
-- Descarga únicamente el archivo `src/Toggle-NvidiaService.ps1` y guárdalo en cualquier lugar de tu equipo.
+- Descarga únicamente el archivo `Toggle-NvidiaService.ps1` y guárdalo en cualquier lugar de tu equipo.
 - Haz clic derecho sobre el archivo descargado y selecciona **Ejecutar con PowerShell**.
   - *Alternativa:* Si Windows te muestra un error indicando que la ejecución de scripts está deshabilitada, abre una consola y ejecuta:
     ```powershell
