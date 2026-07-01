@@ -1,12 +1,27 @@
 param (
     [switch]$SkipAdminCheck,
-    [switch]$NoWait
+    [switch]$NoWait,
+    [switch]$Help
 )
 
 # ============================================================
 # Soporte para caracteres especiales (UTF-8)
 # ============================================================
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+if ($Help) {
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "  Ayuda: Toggle-NvidiaService" -ForegroundColor Cyan
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "Uso: .\Toggle-NvidiaService.ps1 [Parámetros]"
+    Write-Host ""
+    Write-Host "Parámetros opcionales:"
+    Write-Host "  -SkipAdminCheck            Omite la comprobación y autoelevación de administrador (UAC)"
+    Write-Host "  -NoWait                    No espera 3 segundos al finalizar (útil para llamadas automatizadas)"
+    Write-Host "  -Help                      Muestra esta ayuda"
+    Write-Host "============================================================" -ForegroundColor Cyan
+    return
+}
 
 # ============================================================
 # Bloque de Auto-Elevación de Privilegios

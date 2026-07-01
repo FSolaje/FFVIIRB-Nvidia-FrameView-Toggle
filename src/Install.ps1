@@ -2,13 +2,29 @@
 param (
     [string]$TargetDirName = "FFVIIRB-Nvidia-FrameView-Toggle",
     [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)",
-    [string]$InstallDirName = "Documents\My Games\FINAL FANTASY VII REBIRTH"
+    [string]$InstallDirName = "Documents\My Games\FINAL FANTASY VII REBIRTH",
+    [switch]$Help
 )
 
 # ============================================================
 # Soporte para caracteres especiales (UTF-8)
 # ============================================================
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+if ($Help) {
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "  Ayuda: Instalador de FFVIIRB Nvidia FrameView Toggle" -ForegroundColor Cyan
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "Uso: .\Install.ps1 [Parámetros]"
+    Write-Host ""
+    Write-Host "Parámetros opcionales:"
+    Write-Host "  -InstallDirName <string>   Ruta relativa al perfil de usuario para instalar (por defecto: Documents\My Games\FINAL FANTASY VII REBIRTH)"
+    Write-Host "  -TargetDirName <string>    Nombre de la carpeta de destino (por defecto: FFVIIRB-Nvidia-FrameView-Toggle)"
+    Write-Host "  -ShortcutName <string>     Nombre del acceso directo (por defecto: FFVII Rebirth (FrameView Toggle))"
+    Write-Host "  -Help                      Muestra esta ayuda"
+    Write-Host "============================================================" -ForegroundColor Cyan
+    exit
+}
 
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host "  Instalador - FFVIIRB Nvidia FrameView Toggle" -ForegroundColor Cyan
