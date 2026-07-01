@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param (
     [string]$TargetDirName = "FFVIIRB-Nvidia-FrameView-Toggle",
     [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)"
@@ -21,7 +21,8 @@ $ShortcutPath = Join-Path -Path $DesktopPath -ChildPath "$ShortcutName.lnk"
 if (Test-Path -Path $ShortcutPath) {
     Remove-Item -Path $ShortcutPath -Force
     Write-Host "[+] Eliminado acceso directo: $ShortcutPath" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "[-] El acceso directo no existe: $ShortcutPath" -ForegroundColor Yellow
 }
 
@@ -32,7 +33,8 @@ if (Test-Path -Path $TargetDir) {
     Set-Location -Path $env:USERPROFILE
     Remove-Item -Path $TargetDir -Recurse -Force
     Write-Host "[+] Eliminado directorio de instalación: $TargetDir" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "[-] El directorio de instalación no existe: $TargetDir" -ForegroundColor Yellow
 }
 

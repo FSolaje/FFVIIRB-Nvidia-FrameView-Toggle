@@ -1,4 +1,4 @@
-param (
+﻿param (
     [switch]$SkipAdminCheck,
     [switch]$NoWait,
     [switch]$Help
@@ -56,7 +56,8 @@ if ($Servicio.Status -eq 'Running') {
     Write-Host "[*] El servicio está ACTIVO. Deteniendo..." -ForegroundColor Yellow
     Stop-Service -Name $ServiceName -Force
     Write-Host "[+] Servicio detenido exitosamente." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "[*] El servicio está DETENIDO. Iniciando..." -ForegroundColor Yellow
     Start-Service -Name $ServiceName
     Write-Host "[+] Servicio iniciado exitosamente." -ForegroundColor Green
