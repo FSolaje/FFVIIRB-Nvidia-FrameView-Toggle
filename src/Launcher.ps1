@@ -1,11 +1,25 @@
 param (
-    [switch]$SkipAdminCheck
+    [switch]$SkipAdminCheck,
+    [switch]$Help
 )
 
 # ============================================================
 # Soporte para caracteres especiales (UTF-8)
 # ============================================================
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+if ($Help) {
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "  Ayuda: Launcher de FFVIIRB Nvidia FrameView Toggle" -ForegroundColor Cyan
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "Uso: .\Launcher.ps1 [Parámetros]"
+    Write-Host ""
+    Write-Host "Parámetros opcionales:"
+    Write-Host "  -SkipAdminCheck            Omite la comprobación y autoelevación de administrador (UAC)"
+    Write-Host "  -Help                      Muestra esta ayuda"
+    Write-Host "============================================================" -ForegroundColor Cyan
+    exit
+}
 
 # ============================================================
 # Bloque de Auto-Elevación de Privilegios
