@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param (
     [string]$TargetDirName = "FFVIIRB-Nvidia-FrameView-Toggle",
-    [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)"
+    [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)",
+    [string]$InstallDirName = "Documents\My Games\FINAL FANTASY VII REBIRTH"
 )
 
 # ============================================================
@@ -14,7 +15,7 @@ Write-Host "  Instalador - FFVIIRB Nvidia FrameView Toggle" -ForegroundColor Cya
 Write-Host "============================================================" -ForegroundColor Cyan
 
 # Definir la ruta destino dentro de la carpeta del usuario
-$TargetDir = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\My Games\FINAL FANTASY VII REBIRTH\$TargetDirName"
+$TargetDir = Join-Path -Path $env:USERPROFILE -ChildPath "$InstallDirName\$TargetDirName"
 
 # Crear directorio si no existe
 if (-not (Test-Path -Path $TargetDir)) {
