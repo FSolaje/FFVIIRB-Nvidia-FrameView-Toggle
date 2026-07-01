@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param (
     [string]$ShortcutName = "FFVII Rebirth (FrameView Toggle)"
 )
@@ -12,15 +12,7 @@ Write-Host "============================================================" -Foreg
 Write-Host "  Generador de Acceso Directo - FFVIIRB Toggle" -ForegroundColor Cyan
 Write-Host "============================================================" -ForegroundColor Cyan
 
-# Cargar Configuración Dinámica para obtener el icono
-$ConfiguratorPath = Join-Path -Path $PSScriptRoot -ChildPath "Configurator.ps1"
-if (-not (Test-Path -Path $ConfiguratorPath)) {
-    Write-Host "[!] Error: No se encuentra Configurator.ps1 en $PSScriptRoot" -ForegroundColor Red
-    Start-Sleep -Seconds 3
-    exit
-}
-
-$Config = & $ConfiguratorPath
+$IconPath = "C:\Program Files (x86)\Steam\steam\games\d3697ce75022287b2c209e61eaf280b8b6cdec31.ico"
 
 $DesktopPath = [Environment]::GetFolderPath('Desktop')
 $ShortcutPath = Join-Path -Path $DesktopPath -ChildPath "$ShortcutName.lnk"
@@ -36,15 +28,12 @@ $Shortcut.TargetPath = "powershell.exe"
 $LauncherPath = Join-Path -Path $PSScriptRoot -ChildPath "Launcher.ps1"
 $Shortcut.Arguments = "-WindowStyle Hidden -ExecutionPolicy Bypass -File `"$LauncherPath`""
 
-# Configurar el icono si está definido y existe, o usar el de Steam por defecto del config
-if ($null -ne $Config.IconPath) {
-    if (Test-Path -Path $Config.IconPath) {
-        $Shortcut.IconLocation = $Config.IconPath
-    }
-    else {
-        Write-Host "[!] El icono especificado en config.json no existe: $($Config.IconPath)" -ForegroundColor Yellow
-        Write-Host "[*] Se usará el icono predeterminado de PowerShell." -ForegroundColor Yellow
-    }
+# Configurar el icono si existe
+if (Test-Path -Path $IconPath) {
+    $Shortcut.IconLocation = $IconPath
+} else {
+    Write-Host "[!] El icono predeterminado no existe: $IconPath" -ForegroundColor Yellow
+    Write-Host "[*] Se usará el icono predeterminado de PowerShell." -ForegroundColor Yellow
 }
 
 $Shortcut.WorkingDirectory = $PSScriptRoot
